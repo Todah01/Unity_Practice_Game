@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Obstacle_Hit
   - Obstacle_Default
+  - Friendly
+  - Fuel
   layers:
   - Default
   - TransparentFX

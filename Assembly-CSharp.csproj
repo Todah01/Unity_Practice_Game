@@ -44,6 +44,7 @@
      <Compile Include="Assets\Scripts\Section_1\Spinner.cs" />
      <Compile Include="Assets\Scripts\Section_2\Movement.cs" />
      <Compile Include="Assets\Scripts\Section_1\Mover.cs" />
+     <Compile Include="Assets\Scripts\Section_2\CollisionHandler.cs" />
      <Compile Include="Assets\Scripts\Section_1\Dropper.cs" />
      <Compile Include="Assets\Scripts\Section_1\ObjectHit.cs" />
     <Reference Include="UnityEngine">

@@ -359,6 +359,7 @@
 "Assets/Scripts/Section_1/ObjectHit.cs"
 "Assets/Scripts/Section_1/Scorer.cs"
 "Assets/Scripts/Section_1/Spinner.cs"
+"Assets/Scripts/Section_2/CollisionHandler.cs"
 "Assets/Scripts/Section_2/Movement.cs"
 -langversion:9.0
 
