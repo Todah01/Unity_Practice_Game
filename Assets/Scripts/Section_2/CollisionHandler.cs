@@ -9,16 +9,34 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] float levelLoadDelay = 2f;
     [SerializeField] AudioClip crash;
     [SerializeField] AudioClip success;
+    [SerializeField] ParticleSystem crashParticles;
+    [SerializeField] ParticleSystem successParticles;
 
     AudioSource collision_as;
     bool isTransitioning = false;
+    bool collisionDisabled = false;
 
     private void Start() {
         collision_as = this.GetComponent<AudioSource>();
     }
-     private void OnCollisionEnter(Collision other) {
 
-        if(isTransitioning)
+    private void Update() {
+        RespondToDebugKeys();
+    }
+
+    private void RespondToDebugKeys()
+    {
+        if(Input.GetKeyDown(KeyCode.L)){
+            LoadNextLevel();
+        }
+        else if(Input.GetKeyDown(KeyCode.C)){
+            collisionDisabled = !collisionDisabled; // toggle collision
+        }
+    }
+
+    private void OnCollisionEnter(Collision other) {
+
+        if(isTransitioning || collisionDisabled)
             return;
 
         switch(other.gameObject.tag){
@@ -39,7 +57,7 @@ public class CollisionHandler : MonoBehaviour
         isTransitioning = true;
         collision_as.Stop();
         collision_as.PlayOneShot(success);
-        // todo add particle effect upon success
+        successParticles.Play();
         this.GetComponent<Movement>().enabled = false;
         Invoke("LoadNextLevel", levelLoadDelay);
     }
@@ -48,7 +66,7 @@ public class CollisionHandler : MonoBehaviour
         isTransitioning = true;
         collision_as.Stop();
         collision_as.PlayOneShot(crash);
-        // todo add particle effect upon crash
+        crashParticles.Play();
         this.GetComponent<Movement>().enabled = false;
         Invoke("ReloadLevel", levelLoadDelay);
      }
