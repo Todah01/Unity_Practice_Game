@@ -361,6 +361,8 @@
 "Assets/Scripts/Section_1/Spinner.cs"
 "Assets/Scripts/Section_2/CollisionHandler.cs"
 "Assets/Scripts/Section_2/Movement.cs"
+"Assets/Scripts/Section_2/Oscillator.cs"
+"Assets/Scripts/Section_2/QuitApplication.cs"
 -langversion:9.0
 
 /deterministic
